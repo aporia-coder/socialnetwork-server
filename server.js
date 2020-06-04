@@ -24,9 +24,10 @@ const connection = mongoose.connect(
 
 // Initialize server
 const app = express();
-
-// Routes / Middleware
-app.use("/api/public", express.static("public"));
++(
+  // Routes / Middleware
+  app.use("/api/public", express.static("public"))
+);
 app.use(express.json());
 app.use("/api/screams", require("./routes/screams"));
 app.use("/api/users", require("./routes/users"));
