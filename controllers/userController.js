@@ -130,15 +130,19 @@ exports.addUserDetails = async (req, res) => {
   try {
     const user = await User.findOne({ userName: req.user });
     const { bio, website, location } = req.body;
-    user.bio = bio;
-    if (website.substring(0, 4) !== "http") {
-      user.website = `http://${website.trim()}`;
-    } else {
-      user.website = website;
+    if (bio) user.bio = bio;
+    if (website) {
+      if (website.substring(0, 4) !== "http") {
+        user.website = `http://${website.trim()}`;
+      } else {
+        user.website = website;
+      }
     }
-    let locationArr = location.split("");
-    user.location =
-      locationArr[0].toUpperCase() + locationArr.slice(1).join("");
+    if (location) {
+      let locationArr = location.split("");
+      user.location =
+        locationArr[0].toUpperCase() + locationArr.slice(1).join("");
+    }
     await user.save();
     return res.status(201).json({
       success: true,
