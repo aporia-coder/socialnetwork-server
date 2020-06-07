@@ -45,7 +45,13 @@ app.listen(port, () => {
 // Might have to call validate functions to get errors from models
 // add general errors in typography above the button on login/signup
 // do notifications
+
 // CLIENT
+// add spinner just for profile section when uploading image
+// put useeffect hook in home as a redux function
+// create logout user action, just removes token and headers and sets authenticated to false
+// make set headers function for both sign up and logout actionsS
+// check if SETUNAUTH removes credetials aswell as authenticated
 // give generic homepage when there are no screams
 // change white background color of text fields
 // make signup/login styles globally available in theme, in new file and import it so it dosnt take up as much space on component files
