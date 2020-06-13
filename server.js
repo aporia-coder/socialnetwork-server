@@ -39,7 +39,7 @@ app.listen(port, () => {
 // TO DO LIST
 
 // users can sign up even if passwords dont match
-// handle usernames with capital letters,
+// handle usernames with capital letters, they can both create accounts
 // check which controller function i need to order comments in
 // add profile image to comments through auth middleware req.user.profileImage
 // Might have to call validate functions to get errors from models
@@ -49,8 +49,6 @@ app.listen(port, () => {
 // CLIENT
 // add spinner just for profile section when uploading image
 // put useeffect hook in home as a redux function
-// create logout user action, just removes token and headers and sets authenticated to false
-// make set headers function for both sign up and logout actionsS
 // check if SETUNAUTH removes credetials aswell as authenticated
 // give generic homepage when there are no screams
 // change white background color of text fields
