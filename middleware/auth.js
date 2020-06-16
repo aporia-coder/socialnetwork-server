@@ -11,12 +11,9 @@ module.exports = (req, res, next) => {
       });
     }
     const decoded = jwt.verify(token, process.env.JWT_KEY);
-    req.user = decoded.id;
+    req.user = decoded.user;
     next();
   } catch (err) {
-    res.status(400).json({
-      success: false,
-      error: err.message,
-    });
+    console.log(err);
   }
 };

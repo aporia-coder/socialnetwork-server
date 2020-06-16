@@ -28,7 +28,7 @@ exports.findUsers = async (req, res) => {
 // @access Private
 exports.findUser = async (req, res) => {
   try {
-    const user = await User.findOne({ userName: req.user });
+    const user = await User.findOne({ userName: req.user.userName });
     return res.status(200).json({
       success: true,
       data: user,
@@ -57,7 +57,7 @@ exports.createUser = async (req, res) => {
     user.save();
 
     jwt.sign(
-      { id: user.userName },
+      { user },
       process.env.JWT_KEY,
       { expiresIn: "1hr" },
       (err, token) => {
@@ -103,7 +103,7 @@ exports.loginUser = async (req, res) => {
     // jwt takes a payload, secret key, expiration and a callback
 
     jwt.sign(
-      { id: user.userName },
+      { user },
       process.env.JWT_KEY,
       { expiresIn: "1hr" },
       (err, token) => {
